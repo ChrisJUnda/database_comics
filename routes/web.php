@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\Guest\PageController;
+// use App\Http\Controllers\Guest\PageController;
+
+use App\Http\Controllers\Admin\ComicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 //Rotta Homepage
 
-Route::get('/', [PageController::class, 'index']);
+// Route::get('/', [PageController::class, 'index']);
+
+Route::get('/', function () {
+    return redirect()->route('comics.index');
+});
+
+Route::resource('comics', ComicController::class);
